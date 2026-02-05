@@ -1,0 +1,28 @@
+<h1>Painel Administrativo</h1>
+
+<h2>Usuário que mais comentou</h2>
+
+{% if top_user %}
+<p>
+    Usuário: <strong>{{ top_user[0]._id }}</strong><br>
+    Total de comentários: {{ top_user[0].totalComentarios }}
+</p>
+{% endif %}
+
+<hr>
+
+<h2>Comentário mais curtido por post</h2>
+
+<form method="post">
+    <input type="text" name="post_title" placeholder="Título do post" required>
+    <button type="submit">Consultar</button>
+</form>
+
+{% if top_comment %}
+<hr>
+<p>
+    Usuário: {{ top_comment[0].comments.user }}<br>
+    Curtidas: {{ top_comment[0].comments.likes }}<br>
+    Comentário: "{{ top_comment[0].comments.text }}"
+</p>
+{% endif %}
